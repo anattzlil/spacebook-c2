@@ -1,0 +1,12 @@
+.remove {
+    margin-left: 20px;
+}
+
+.comment-form {
+    padding-left: 40px;
+}
+
+#username {
+    position: relative;
+    margin-bottom: 5px;
+}
