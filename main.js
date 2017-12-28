@@ -20,11 +20,12 @@ var renderPost = function() {
     $('.posts').find('p').remove();
     for( var i = 0; i < posts.length; i++){
        $('.posts').append('<p class="post" data-index=' + i + '>' + posts[i].userInput + '</p>');
-       $('p:last-child').attr('data-id', posts[i].userId);
-       $('p:last-child').append('<button type="button" class="btn btn-primary remove">Remove</button>');
-       $('p:last-child').append('<div class="comments"></div><form class="comment-form"><h4>Add a Comment</h4><div class="form-group"><input type="text" class="form-control username" placeholder="Username"><input type="text" class="form-control comment-name" placeholder="Comment Text"></div><button class="btn btn-primary add-comment" type="button">Post</button></form>');
+       $('p:last-child.post').attr('data-id', posts[i].userId);
+       $('p:last-child.post').append('<button type="button" class="btn btn-primary remove">Remove</button>');
+       $('p:last-child.post').append('<div class="comments"></div><form class="comment-form"><h3>Add a Comment</h3><div class="form-group"><input type="text" class="form-control username" placeholder="Username"><input type="text" class="form-control comment-name" placeholder="Comment Text"></div><button class="btn btn-primary add-comment" type="button">Post</button></form>');
        for(var j = 0; j < posts[i].comments.length; j++ ){
-            $('.comments').append('<p><b>' + posts[i].comments[j].name + ' says:</b></p><p class="post-comment" data-index=' + j + '>' + posts[i].comments[j].text + '</p>');
+            $('.comments').append('<p class="post-comment" data-index=' + j + '><b>' + posts[i].comments[j].name + ' says:</b><br>' + posts[i].comments[j].text + '<br><button type="button" class="btn btn-primary remove-comment">Remove</button></p>');
+            // $('p:last-child').append('<button type="button" class="btn btn-primary remove-comment">Remove</button>');
        }
     }
 }
@@ -37,6 +38,16 @@ var removePost = function(){
     var itemtoRemove = $(this).closest('p');
     console.log(itemtoRemove);
     posts.splice(itemtoRemove.data().index,1);
+    renderPost();
+}
+
+//remove comment and button
+var removeComment = function(){
+    var closestDiv = $('.post-comment').closest('div');
+    closestPara = $(closestDiv).closest('p');
+    var itemtoRemove = $(this).closest('p');
+    posts[closestPara.data().index].comments.splice(itemtoRemove.data().index,1);
+    console.log(posts)
     renderPost();
 }
 
@@ -77,6 +88,8 @@ $('.add-post').on('click', function() {
 //click-remove post
 $('.posts').on('click', '.remove', removePost);
 
+//click-remove comment
+$(document).on('click', '.remove-comment', removeComment);
 
 //click-add comment
 $(document).on('click', '.add-comment', function (){

@@ -6,7 +6,22 @@
     padding-left: 40px;
 }
 
-#username {
+.username {
     position: relative;
     margin-bottom: 5px;
+}
+
+.post {
+    font-size: 20px; 
+}
+
+.post-comment {
+    font-size: 15px;
+    margin-bottom: 0;
+    margin-top: 15px;
+    padding-left: 40px;
+}
+
+.remove-comment {
+    margin-top: 5px;
 }
