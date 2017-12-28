@@ -40,6 +40,17 @@ var SpacebookApp = function () {
     posts.push(post);
   }
 
+
+  // var createComment = function(userName, text) {
+  //   var comment = {
+  //     username: userName,
+  //     commentText: text
+  //   }
+
+  //   posts[$(this).closest('.post').data().id].push(comment);
+  // }
+
+
   var renderPosts = function () {
     $posts.empty();
 
@@ -84,7 +95,7 @@ var SpacebookApp = function () {
 
     // TODO: Implement
     // removeComment: removeComment,
-    toggleComments: toggleComments
+    // toggleComments: toggleComments
   }
 }
 
