@@ -5,3 +5,7 @@
 .show {
   display: block;
 }
+
+.removeComment {
+  margin-left: 10px;
+}
