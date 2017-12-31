@@ -143,7 +143,8 @@ $('.posts').on('click', '.add-comment' ,function() {
   var commentPostId = $(this).closest('.comments-container').closest('.post').data().id;
   app.createComment(text, commentPostId);
   app.renderPosts();
-  $(this).closest('.post').find('.comments-container').css('class', 'show');
+//   $(this).closest('.post').find('.comments-container').css('class', 'show');
+    // app.renderComments(commentPostId);
 });
 
 $('.posts').on('click', '.removeComment', function(){
