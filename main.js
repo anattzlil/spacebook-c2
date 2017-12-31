@@ -1,3 +1,4 @@
+//this is a comment for branching
 // Create a function that creates a new post object and adds it to a posts array.
 
 // Each post object should have two properties: text (the user's input, a string) and id (a number, dynamically generated).
