@@ -44,7 +44,8 @@ var SpacebookApp = function () {
 
   var createComment = function(text,id) {
     var comment = text;    
-    posts[id].comment.push(comment);
+    var post = _findPostById(id);
+    post.comment.push(comment);
     console.log(posts);
   }
 
@@ -79,9 +80,7 @@ var SpacebookApp = function () {
     var currentPost = $($clickedComment).closest('.post');
     var id = currentPost.data().id;
     var post = _findPostById(id);
-    console.log(posts.text);
     posts[posts.indexOf(post)].comment.splice(commentId, 1);
-    console.log(posts);
     $clickedComment.remove();
   }
 
