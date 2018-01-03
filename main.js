@@ -56,21 +56,23 @@ var SpacebookApp = function () {
     };
     return comments;
   };
-
-
+  
   var renderPosts = function () {
     $posts.empty();
-
+    var source = $('#posts-template').html();
+    var template = Handlebars.compile(source);
     for (var i = 0; i < posts.length; i += 1) {
-      var post = posts[i];
+      // var post = posts[i];
+      var newHTML = template(posts[i]);
+      $('.posts').append(newHTML);
 
-      var commentsContainer = '<div class="comments-container"><ul>' +
-      renderComments(i) + '</ul><input type="text" class="comment-name">' + 
-      '<button class="btn btn-primary add-comment">Post Comment</button> </div>';
+      // var commentsContainer = '<div class="comments-container"><ul>' +
+      // renderComments(i) + '</ul><input type="text" class="comment-name">' + 
+      // '<button class="btn btn-primary add-comment">Post Comment</button> </div>';
 
-      $posts.append('<div class="post" data-id=' + post.id + '>'
-        + '<a href="#" class="remove">remove</a> ' + '<a href="#" class="show-comments">comments</a> ' + post.text +
-        commentsContainer + '</div>');
+      // $posts.append('<div class="post" data-id=' + post.id + '>'
+      //   + '<a href="#" class="remove">remove</a> ' + '<a href="#" class="show-comments">comments</a> ' + post.text +
+      //   commentsContainer + '</div>');
     }
   }
 

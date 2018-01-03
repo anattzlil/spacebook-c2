@@ -11,7 +11,6 @@
       <div class="page-header">
         <h1>Spacebook</h1>
       </div>
-
       <div class="posts">
       </div>
 
@@ -27,6 +26,22 @@
 
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+  <script id="posts-template" type="type/x-handlebars-template>
+    <div class="post" data-id="{{id}}">
+          <a href="#" class="remove">remove</a>
+          <a href="#" class="show-comments">comments</a>{{text}}
+    </div>
+    <div class="comments-container">
+            <ul>
+            </ul>
+          <input type="text" class="comment-name">
+          <button class="btn btn-primary add-comment">Post Comment</button> 
+    </div>
+
+
+
+  </script>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="main.js"></script>
 </body>
